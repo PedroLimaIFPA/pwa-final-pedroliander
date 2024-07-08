@@ -14,6 +14,7 @@ function updateLogo(theme) {
 // Inicializa o tema e a logo
 if (currentTheme) {
   document.documentElement.setAttribute('data-theme', currentTheme);
+  document.body.classList.add(currentTheme);
   updateLogo(currentTheme);
 
   if (currentTheme === 'dark') {
@@ -25,10 +26,12 @@ if (currentTheme) {
 themeToggle.addEventListener('change', () => {
   if (themeToggle.checked) {
     document.documentElement.setAttribute('data-theme', 'dark');
+    document.body.classList.replace('light', 'dark');
     localStorage.setItem('theme', 'dark');
     updateLogo('dark');
   } else {
     document.documentElement.setAttribute('data-theme', 'light');
+    document.body.classList.replace('dark', 'light');
     localStorage.setItem('theme', 'light');
     updateLogo('light');
   }
