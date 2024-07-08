@@ -1,0 +1,150 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+:root {
+  --background-color: #f0f0f0;
+  --text-color: #000;
+}
+
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #fff;
+}
+
+.recover-container {
+  background-color: var(--background-color);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.logo img {
+  width: 150px;
+}
+
+.theme-switch {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+.recover-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recover-form h2 {
+  margin: 10px 0;
+}
+
+.recover-form p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.recover-form input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 22px); /* Ensure full width with padding and border */
+  box-sizing: border-box;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.buttons button {
+  padding: 10px;
+  margin: 10px 5px;
+  width: calc(50% - 12px); /* Ensure full width with padding and margin */
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons button[type="button"] {
+  background-color: #ccc;
+  color: #000;
+}
+
+.buttons button:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 500px) {
+  .recover-container {
+    padding: 15px;
+  }
+
+  .recover-form input {
+    margin: 5px 0;
+    padding: 8px;
+  }
+
+  .buttons button {
+    margin: 5px 0;
+    padding: 8px;
+    width: calc(50% - 8px); /* Ensure full width with padding and margin */
+  }
+}

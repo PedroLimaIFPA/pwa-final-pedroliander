@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/recover.css">
+  <title>Sismorcego - Recuperação de Senha</title>
+</head>
+<body>
+  <div class="recover-container">
+    <div class="logo">
+      <img id="logo" src="/src/Logo_tema_claro144px.png" alt="Sismorcego Logo">
+    </div>
+    <div class="theme-switch">
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <form class="recover-form">
+      <h2>Recuperação de senha</h2>
+      <p>Insira seu email ou número de celular para procurar a sua conta.</p>
+      <input type="email" placeholder="Digite seu email" required>
+      <div class="buttons">
+        <button type="button" onclick="window.location.href='login.html'">Cancelar</button>
+        <button type="submit">Pesquisar</button>
+      </div>
+    </form>
+  </div>
+  <script src="js/theme.js"></script>
+</body>
+</html>
