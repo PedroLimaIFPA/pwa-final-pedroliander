@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles/registro.css">
+  <title>Sismorcego - Configurações</title>
+  <script src="js/theme-toggle.js" defer></script>
+  <script src="js/function.js" defer></script>
+</head>
+<body>
+  <div class="content-header">
+    <div class="theme-switch">
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="logo">
+      <img src="src/Logo_tema_claro144px.png" alt="Logo" id="logo">
+    </div>
+    <div class="logout">
+      <a href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+    </div>
+  </div>
+  
+  <div class="main-content">
+    <section id="configuracoes">
+      <form>
+        <label for="nome-acs">Nome do ACS:</label>
+        <input type="text" id="nome-acs" name="nome-acs">
+
+        <label for="data-registro">Data do registro:</label>
+        <input type="date" id="data-registro" name="data-registro">
+
+        <label for="nome-agredido">Nome do Agredido:</label>
+        <input type="text" id="nome-agredido" name="nome-agredido">
+
+        <label for="data-agressao">Data da Agressão:</label>
+        <input type="date" id="data-agressao" name="data-agressao">
+
+        <label>Sexo:</label>
+        <label><input type="radio" name="sexo" value="feminino"> Feminino</label>
+        <label><input type="radio" name="sexo" value="masculino"> Masculino</label>
+
+        <label for="geolocalizacao">Geolocalização:</label>
+        <button type="button" onclick="generateLocation()">Gerar localização</button>
+        <div id="map"></div>
+        <input type="text" id="latitude" name="latitude" readonly>
+        <input type="text" id="longitude" name="longitude" readonly>
+
+        <label for="municipio-agressao">Município da agressão:</label>
+        <input type="text" id="municipio-agressao" name="municipio-agressao">
+
+        <label for="endereco-agressao">Endereço da agressão:</label>
+        <input type="text" id="endereco-agressao" name="endereco-agressao">
+
+        <label>Local da agressão:</label>
+        <label><input type="checkbox" name="local-agressao" value="cobertura-de-palha"> Casa cobertura de palha</label>
+        <label><input type="checkbox" name="local-agressao" value="madeira-sem-forro"> Casa de madeira sem forro</label>
+        <label><input type="checkbox" name="local-agressao" value="alvenaria-sem-forro"> Casa de alvenaria sem forro</label>
+        <label><input type="checkbox" name="local-agressao" value="alvenaria-com-forro"> Casa de alvenaria com forro</label>
+        <label><input type="checkbox" name="local-agressao" value="barraco-de-lona"> Barraco de lona</label>
+        <label><input type="checkbox" name="local-agressao" value="nao-tem"> Não tem</label>
+        <label><input type="checkbox" name="local-agressao" value="muta"> MUtá</label>
+
+        <label for="camera">Acessar câmera:</label>
+        <button type="button" onclick="accessCamera()"><i class="fa-regular fa-camera"></i></button>
+
+        <label for="galeria">Acessar galeria:</label>
+        <button type="button" onclick="accessGallery()"><i class="fa-solid fa-image"></i></button>
+
+        <label>Recebeu tratamento antirrábico:</label>
+        <label><input type="radio" name="tratamento" value="sim"> Sim</label>
+        <label><input type="radio" name="tratamento" value="nao"> Não</label>
+
+        <label>Animal agredido no local:</label>
+        <label><input type="checkbox" name="animal-agredido" value="nao"> Não</label>
+        <label><input type="checkbox" name="animal-agredido" value="boi"> Boi</label>
+        <label><input type="checkbox" name="animal-agredido" value="porco"> Porco</label>
+        <label><input type="checkbox" name="animal-agredido" value="cavalo"> Cavalo</label>
+        <label><input type="checkbox" name="animal-agredido" value="cao"> Cão</label>
+        <label><input type="checkbox" name="animal-agredido" value="gato"> Gato</label>
+        <label><input type="checkbox" name="animal-agredido" value="aves"> Aves</label>
+
+        <label>Qual a fonte de luz:</label>
+        <label><input type="checkbox" name="fonte-luz" value="energia-eletrica"> Energia elétrica</label>
+        <label><input type="checkbox" name="fonte-luz" value="fogueira"> Fogueira</label>
+        <label><input type="checkbox" name="fonte-luz" value="lamparina"> Lamparina</label>
+
+        <label>Circunstância:</label>
+        <label><input type="checkbox" name="circunstancia" value="pescando"> Pescando</label>
+        <label><input type="checkbox" name="circunstancia" value="cacando"> Caçando</label>
+        <label><input type="checkbox" name="circunstancia" value="em-lazer"> Em lazer</label>
+
+        <button type="submit">Registrar</button>
+      </form>
+    </section>
+  </div>
+  
+  <footer>
+    <button><a href="inicial.html"><i class="fa-solid fa-house-chimney"></i></a></button>
+    <button><a href="pesquisar.html"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+    <button><a href="perguntas.html"><i class="fa-solid fa-file-circle-plus"></i></a></button>
+    <button><a href="configuracoes.html"><i class="fa-solid fa-gear"></i></a></button>
+    <button><a href="desenvolvedores.html"><i class="fa-solid fa-users"></i></a></button>
+  </footer>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>
