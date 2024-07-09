@@ -18,16 +18,7 @@ body {
 }
 
 /* Cabeçalho */
-.content-header {
-    background-color: var(--header-bg-color);
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s;
-}
-
-.content-header header .img {
+header .img {
     display: flex;
     align-items: center;
 }

@@ -85,14 +85,14 @@ input:checked + .slider:before {
 .register-form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
 .register-form input {
   padding: 10px;
-  margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: calc(100% - 22px); /* Ensure full width with padding and border */
+  width: 100% ;
   box-sizing: border-box;
 }
 
@@ -103,7 +103,7 @@ input:checked + .slider:before {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: calc(100% - 22px); /* Ensure full width with padding and border */
+  width: 100%; 
   box-sizing: border-box;
 }
 

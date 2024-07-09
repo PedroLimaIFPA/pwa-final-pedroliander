@@ -88,34 +88,31 @@ input:checked + .slider:before {
   align-items: center;
 }
 
-.recover-form h2 {
-  margin: 10px 0;
-}
 
 .recover-form p {
-  margin: 10px 0;
   font-size: 14px;
 }
 
 .recover-form input {
+  width: 100%;
   padding: 10px;
-  margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: calc(100% - 22px); /* Ensure full width with padding and border */
   box-sizing: border-box;
 }
 
 .buttons {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
   width: 100%;
+  margin-top: 10px;
 }
 
 .buttons button {
   padding: 10px;
-  margin: 10px 5px;
-  width: calc(50% - 12px); /* Ensure full width with padding and margin */
+  margin: 10px 0px;
+  width: 50%; /* Ensure full width with padding and margin */
   background-color: #6200ea;
   color: white;
   border: none;
