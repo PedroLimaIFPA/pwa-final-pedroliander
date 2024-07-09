@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="styles/desenvolvedores.css">
-  <title>Desenvolvedores - Sismorcego</title>
+  <link rel="stylesheet" href="styles/pesquisar.css">
+  <title>Sismorcego - Pesquisa</title>
   <script src="js/theme-toggle.js" defer></script>
+  <script src="js/registros.js" defer></script>
 </head>
 <body>
+  
   <div class="content-header">
     <div class="logout">
       <a href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
@@ -25,36 +27,29 @@
   </div>
   
   <div class="main-content">
-    <section id="desenvolvedores">
-      <h1>Desenvolvedores</h1>
-      <div class="profile">
-        <img src="src/pedro.png" alt="Pedro Dimas">
-        <div class="profile-info">
-          <h3>Pedro Dimas</h3>
-          <p>Cientista da Computação</p>
-        </div>
-      </div>
-      <div class="profile">
-        <img src="src/liander.png" alt="Liander Souza">
-        <div class="profile-info">
-          <h3>Liander Souza</h3>
-          <p>Cientista da Computação</p>
-        </div>
-      </div>
-      <div class="profile">
-        <div class="profile-info">
-          <h3>Graduando</h3>
-          <p>Área</p>
-          <p>Perfil Linkedin</p>
-        </div>
-      </div>
-      <div class="profile">
-        <div class="profile-info">
-          <h3>Dr Fulano</h3>
-          <p>Área</p>
-          <p>Perfil Linkedin</p>
-        </div>
-      </div>
+    <section id="pesquisa">
+      <input type="text" id="search" placeholder="Buscar registros..." onkeyup="searchTable()">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome do ACS</th>
+            <th>Data do Registro</th>
+            <th>Nome do Agredido</th>
+            <th>Data da Agressão</th>
+            <th>Sexo</th>
+            <th>Município da Agressão</th>
+            <th>Endereço da Agressão</th>
+            <th>Local da Agressão</th>
+            <th>Tratamento Antirrábico</th>
+            <th>Animal Agredido</th>
+            <th>Fonte de Luz</th>
+            <th>Circunstância</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-registros">
+          <!-- Linhas da tabela serão adicionadas aqui pelo JavaScript -->
+        </tbody>
+      </table>
     </section>
   </div>
   
@@ -65,7 +60,6 @@
     <button><a href="configuracoes.html"><i class="fa-solid fa-gear"></i></a></button>
     <button><a href="desenvolvedores.html"><i class="fa-solid fa-users"></i></a></button>
   </footer>
-
-  <script src="js/theme.js"></script>
+  <script src="js/theme-toggle.js"></script>
 </body>
 </html>

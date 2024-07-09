@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  :root {
+    --background-color: #f0f0f0;
+    --text-color: #000;
+  }
+  
+  [data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #fff;
+  }
+  
+  .content-header {
+    background-color: var(--background-color);
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .theme-switch {
+    text-align: right;
+  }
+  
+  .theme-switch .switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+  }
+  
+  .theme-switch .switch input {
+    display: none;
+  }
+  
+  .theme-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .theme-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  .theme-switch input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  .theme-switch input:checked + .slider:before {
+    transform: translateX(14px);
+  }
+  
+  .logo img {
+    width: 150px;
+  }
+  
+  .logout a {
+    color: var(--text-color);
+    font-size: 24px;
+  }
+  
+  .main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #pesquisa input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #pesquisa table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  #pesquisa th, #pesquisa td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  #pesquisa th {
+    background-color: #6200ea;
+    color: #fff;
+  }
+  
+  footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: var(--background-color);
+    border-top: 1px solid #ccc;
+  }
+  
+  footer button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  footer button a {
+    color: var(--text-color);
+    font-size: 24px;
+  }
+  
+  footer button a:hover {
+    color: #6200ea;
+  }
+  
+  @media (max-width: 500px) {
+    .main-content {
+      padding: 15px;
+    }
+  }
+  
