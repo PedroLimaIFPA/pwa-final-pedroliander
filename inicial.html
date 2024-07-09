@@ -1,56 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="styles/inicial.css">
-    <title>Sismorcego</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles/inicial.css">
+  <title>Sismorcego - Inicial</title>
+  <script src="js/theme-toggle.js" defer></script>
 </head>
-<body class="container">
-
-    <!-- Cabeçalho -->
-    <div class="content-header">
-        <header>
-            <div class="img">
-                <a href="login.html"><i class="fa-solid fa-arrow-right-from-bracket logout"></i></a>
-            </div>
-
-            <img id="logo" src="src/Logo_tema_claro144px.png" alt="Sismorcego Logo">
-
-            <div class="theme-switch">
-                <label class="switch">
-                  <input type="checkbox" id="theme-toggle">
-                  <span class="slider"></span>
-                </label>
-            </div>
-        </header>
+<body>
+  <div class="content-header">
+    <div class="theme-switch">
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
     </div>
-    
-    <!-- Conteúdo Principal tela Inicial-->
-    <main>
-        <section id="inicial">
-            <h1>Página inicial</h1>
-            <h2>Sobre o projeto</h2>
-            <br>
-            <img src="./src/reuniao.png" alt="Reunião" class="image">
-            <br>
-            <p>Reunião com eixos do projeto</p>
-            <br>
-            <img src="./src/programacao.jpg" alt="Apresentação" class="image">
-            <p>Apresentação do projeto em Curuçá</p>
-        </section>
-    </main>
+    <div class="logo">
+      <img src="src/Logo_tema_claro144px.png" alt="Logo" id="logo">
+    </div>
+    <div class="logout">
+      <a href="login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+    </div>
+  </div>
+  
+  <div class="main-content">
+    <section id="inicial">
+      <h1>Página inicial</h1>
+      <h2>Sobre o projeto</h2>
+      <br>
+      <img src="./src/reuniao.png" alt="Reunião" class="image">
+      <br>
+      <p>Reunião com eixos do projeto</p>
+      <br>
+      <img src="./src/programacao.jpg" alt="Apresentação" class="image">
+      <p>Apresentação do projeto em Curuçá</p>
+    </section>
+  </div>
+  
+  <footer>
+    <button><a href="inicial.html"><i class="fa-solid fa-house-chimney"></i></a></button>
+    <button><a href="pesquisar.html"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+    <button><a href="perguntas.html"><i class="fa-solid fa-file-circle-plus"></i></a></button>
+    <button><a href="configuracoes.html"><i class="fa-solid fa-gear"></i></a></button>
+    <button><a href="desenvolvedores.html"><i class="fa-solid fa-users"></i></a></button>
+  </footer>
 
-    <!-- Rodapé -->
-    <footer>
-        <button><a href="inicial.html"><i class="fa-solid fa-house-chimney"></i></a></button>
-        <button><a href="pesquisar.html"><i class="fa-solid fa-magnifying-glass"></i></a></button>
-        <button><a href="perguntas.html"><i class="fa-solid fa-file-circle-plus"></i></a></button>
-        <button><a href="configuracoes.html"><i class="fa-solid fa-gear"></i></a></button>
-        <button><a href="desenvolvedores.html"><i class="fa-solid fa-users"></i></a></button>
-    </footer>
-
-    <script src="js/theme.js"></script>
+  <script src="js/theme.js"></script>
 </body>
 </html>
