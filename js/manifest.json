@@ -1,0 +1,26 @@
+{
+  "name": "Sismorcego",
+  "short_name": "Sismorcego",
+  "description": "Aplicativo de registro de agressões e pesquisas",
+  "start_url": "login.html",
+  "display": "standalone",
+  "background_color": "#f0f0f0",
+  "theme_color": "#6200ea",
+  "icons": [
+    {
+      "src": "src/Logo_tema_claro144px.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "src/Logo_tema_claro192px.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "src/Logo_tema_claro512px.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
