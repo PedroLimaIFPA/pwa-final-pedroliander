@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--background-color);
+  background-color: var(--body-background-color);
   color: var(--text-color);
   display: flex;
   justify-content: center;
@@ -11,17 +11,19 @@ body {
 }
 
 :root {
-  --background-color: #f0f0f0;
+  --body-background-color: #f0f0f0;
+  --container-background-color: #fff;
   --text-color: #000;
 }
 
 [data-theme="dark"] {
-  --background-color: #121212;
+  --body-background-color: #1d1d1d;  /* Um pouco mais claro que o container */
+  --container-background-color: #121212;  /* Fundo do container */
   --text-color: #fff;
 }
 
 .register-container {
-  background-color: var(--background-color);
+  background-color: var(--container-background-color);
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -92,7 +94,7 @@ input:checked + .slider:before {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 100% ;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -103,7 +105,7 @@ input:checked + .slider:before {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%; 
+  width: 100%;
   box-sizing: border-box;
 }
 
