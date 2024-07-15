@@ -1,6 +1,7 @@
 const CACHE_NAME = 'sismorcego-cache-v1';
 const urlsToCache = [
   '/',
+  '/index.html', // Adicione esta linha se 'index.html' for a página inicial
   '/inicial.html',
   '/pesquisar.html',
   '/perguntas.html',
@@ -13,6 +14,7 @@ const urlsToCache = [
   '/src/Logo_tema_claro144px.png',
   '/src/Logo_tema_escuro144px.png'
 ];
+
 
 self.addEventListener('install', event => {
   event.waitUntil(
