@@ -9,6 +9,8 @@ const urlsToCache = [
   '/desenvolvedores.html',
   '/styles/inicial.css',
   '/styles/pesquisar.css',
+  '/styles/desenvolvedores.css',
+  '/styles/configuracoes.css',
   '/js/theme.js',
   '/js/registros.js',
   '/src/Logo_tema_claro144px.png',

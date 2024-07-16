@@ -89,11 +89,16 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 20px;
-    text-align: center;
+ 
+  }
+
+  #pesquisa {
+    width: 100%;
+  
   }
   
   #pesquisa input[type="text"] {
-    width: 100%;
+    width: 98.8%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
