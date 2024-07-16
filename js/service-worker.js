@@ -4,7 +4,7 @@ const urlsToCache = [
   '/index.html', // Adicione esta linha se 'index.html' for a página inicial
   '/inicial.html',
   '/pesquisar.html',
-  '/perguntas.html',
+  '/registro.html',
   '/configuracoes.html',
   '/desenvolvedores.html',
   '/styles/inicial.css',
