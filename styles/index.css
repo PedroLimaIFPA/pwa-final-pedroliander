@@ -59,7 +59,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #6200ea;
   transition: 0.4s;
   border-radius: 34px;
 }
@@ -77,7 +77,7 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #6200ea;
 }
 
 input:checked + .slider:before {
@@ -98,6 +98,10 @@ input:checked + .slider:before {
   box-sizing: border-box;
 }
 
+.login-form input:focus {
+  outline: 2px solid #6200ea;
+}
+
 .login-form button {
   padding: 10px;
   background-color: #6200ea;
@@ -107,7 +111,13 @@ input:checked + .slider:before {
   cursor: pointer;
   width: 100%;
   box-sizing: border-box;
+  transition: .5s ease;
 }
+
+.login-form button:hover {
+  background-color: #5203c1;
+}
+
 
 .login-form a {
   color: #6200ea;
