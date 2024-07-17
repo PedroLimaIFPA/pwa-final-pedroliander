@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Função para atualizar a logo com base no tema
   function updateLogo(theme) {
     if (theme === 'dark') {
-      logo.src = 'src/Logo_tema_escuro144px.png';
+      logo.src = '/src/Logo_tema_escuro144px.png';
     } else {
-      logo.src = 'src/Logo_tema_claro144px.png';
+      logo.src = '/src/Logo_tema_claro144px.png';
     }
   }
 
