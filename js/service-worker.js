@@ -1,20 +1,30 @@
 const CACHE_NAME = 'sismorcego-cache-v1';
 const urlsToCache = [
   '/',
-  '/index.html', // Adicione esta linha se 'index.html' for a página inicial
-  '/inicial.html',
-  '/pesquisar.html',
-  '/registro.html',
+  '/cadastro.html',
   '/configuracoes.html',
   '/desenvolvedores.html',
+  '/index.html',
+  '/inicial.html',
+  '/pesquisar.html',
+  '/recuperasenha.html',
+  '/registro.html',
+  '/styles/cadastro.css',
+  '/styles/configuracoes.css',
+  '/styles/desenvolvedores.css',
+  '/styles/index.css',
   '/styles/inicial.css',
   '/styles/pesquisar.css',
-  '/styles/desenvolvedores.css',
-  '/styles/configuracoes.css',
+  '/styles/recuperasenha.css',
+  '/styles/registro.css',
   '/js/theme.js',
   '/js/registros.js',
   '/src/Logo_tema_claro144px.png',
-  '/src/Logo_tema_escuro144px.png'
+  '/src/Logo_tema_escuro144px.png',
+  '/src/Logo_tema_claro192px.png',
+  '/src/Logo_tema_escuro192px.png',
+  '/src/Logo_tema_claro512px.png',
+  '/src/Logo_tema_escuro512px.png'
 ];
 
 
