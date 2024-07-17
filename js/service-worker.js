@@ -27,7 +27,6 @@ const urlsToCache = [
   '/src/Logo_tema_escuro512px.png'
 ];
 
-
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -62,5 +61,28 @@ self.addEventListener('activate', event => {
         })
       );
     })
+  );
+});
+
+// Adicionando suporte para notificações push
+self.addEventListener('push', function(event) {
+  const data = event.data ? event.data.json() : {};
+  const title = data.title || '**Recuperação de senha**'; // **Personalize o título da notificação**
+  const options = {
+    body: data.body || '**O link de recuperação da senha foi enviado para o email indicado**', // **Personalize o corpo da notificação**
+    icon: data.icon || '/src/Logo_tema_claro144px.png', // **Personalize o ícone da notificação**
+    badge: data.badge || '/src/Logo_tema_claro144px.png', // **Personalize o badge da notificação**
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(title, options)
+  );
+});
+
+// Adicionando suporte para clicks em notificações
+self.addEventListener('notificationclick', function(event) {
+  event.notification.close();
+  event.waitUntil(
+    clients.openWindow('/')
   );
 });

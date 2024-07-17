@@ -37,3 +37,16 @@ function generateLocation() {
     // Implementar código para acessar a galeria
   }
   
+  // Adiciona o evento ao botão "Pesquisar"
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
+    event.preventDefault(); // Evita o envio do formulário
+    askNotificationPermission()
+      .then(() => {
+        sendNotification('Título da Notificação', 'Corpo da Notificação');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
+});
