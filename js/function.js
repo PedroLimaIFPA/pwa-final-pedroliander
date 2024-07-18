@@ -1,46 +1,102 @@
-function generateLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-      alert("Geolocalização não é suportada por este navegador.");
-    }
+// Função para mostrar notificação
+function showNotification(message) {
+  if (Notification.permission === 'granted') {
+    new Notification(message);
+  } else if (Notification.permission !== 'denied') {
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        new Notification(message);
+      } else {
+        console.log('Permissão para notificações foi negada.');
+      }
+    });
+  } else {
+    console.log('Permissão para notificações foi negada.');
   }
-  
-  function showPosition(position) {
-    document.getElementById('latitude').value = position.coords.latitude;
-    document.getElementById('longitude').value = position.coords.longitude;
-    // Implementar código para exibir o mapa com a localização
-  }
-  
-  function showError(error) {
-    switch(error.code) {
-      case error.PERMISSION_DENIED:
-        alert("Usuário negou a solicitação de geolocalização.");
-        break;
-      case error.POSITION_UNAVAILABLE:
-        alert("As informações de localização não estão disponíveis.");
-        break;
-      case error.TIMEOUT:
-        alert("A solicitação para obter a localização do usuário expirou.");
-        break;
-      case error.UNKNOWN_ERROR:
-        alert("Ocorreu um erro desconhecido.");
-        break;
-    }
-  }
-  
-  function accessCamera() {
-    navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
-            const video = document.createElement('video');
-            video.srcObject = stream;
-            video.play();
-            document.body.appendChild(video);
-        })
-        .catch(error => console.error('Erro ao acessar a câmera:', error));
 }
 
-  
+// Função para solicitar permissão para notificações
+function askNotificationPermission() {
+  return new Promise((resolve, reject) => {
+    if (Notification.permission === 'granted') {
+      resolve();
+    } else if (Notification.permission === 'denied') {
+      reject('Permissão de notificação negada.');
+    } else {
+      Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+          resolve();
+        } else {
+          reject('Permissão de notificação negada.');
+        }
+      });
+    }
+  });
+}
+
+// Adiciona o evento ao botão "Pesquisar"
+document.addEventListener('DOMContentLoaded', function() {
+  const submitButton = document.querySelector('.recover-form button[type="submit"]');
+  if (submitButton) {
+    submitButton.addEventListener('click', function(event) {
+      event.preventDefault(); // Evita o envio do formulário
+
+      askNotificationPermission()
+        .then(() => {
+          showNotification('Link de recuperação enviado para o email solicitado');
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    });
+  } else {
+    console.log('Botão "Pesquisar" não encontrado.');
+  }
+});
+
+// Funções de geolocalização e acesso à câmera e galeria (sem alterações)
+function generateLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    alert("Geolocalização não é suportada por este navegador.");
+  }
+}
+
+function showPosition(position) {
+  document.getElementById('latitude').value = position.coords.latitude;
+  document.getElementById('longitude').value = position.coords.longitude;
+  // Implementar código para exibir o mapa com a localização
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      alert("Usuário negou a solicitação de geolocalização.");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      alert("As informações de localização não estão disponíveis.");
+      break;
+    case error.TIMEOUT:
+      alert("A solicitação para obter a localização do usuário expirou.");
+      break;
+    case error.UNKNOWN_ERROR:
+      alert("Ocorreu um erro desconhecido.");
+      break;
+  }
+}
+
+function accessCamera() {
+  navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+          const video = document.createElement('video');
+          video.srcObject = stream;
+          video.play();
+          document.body.appendChild(video);
+      })
+      .catch(error => console.error('Erro ao acessar a câmera:', error));
+}
+
 function accessGallery() {
   const input = document.createElement('input');
   input.type = 'file';
@@ -58,33 +114,7 @@ function accessGallery() {
   input.click();
 }
 
-  
-  // Adiciona o evento ao botão "Pesquisar"
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
-    event.preventDefault(); // Evita o envio do formulário
-    askNotificationPermission()
-      .then(() => {
-        sendNotification('Título da Notificação', 'Corpo da Notificação');
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  });
-});
-
-document.getElementById('registerForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const form = e.target;
-  const nome = form.firstName.value;
-  const sobrenome = form.lastName.value;
-  const email = form.email.value;
-  const senha = form.password.value;
-
-  addUsuario(nome, sobrenome, email, senha);
-  alert('Usuário cadastrado com sucesso!');
-});
-
+// Evento para submissão do formulário (sem alterações)
 document.getElementById('formRegistro').addEventListener('submit', function (e) {
   e.preventDefault();
   const form = e.target;

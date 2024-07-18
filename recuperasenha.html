@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles/recuperasenha.css">
   <link rel="manifest" href="js/manifest.json">
   <title>Sismorcego - Recuperação de Senha</title>
+  <script src="js/notificarecupera.js" defer></script>
 </head>
 <body>
   <div class="recover-container">
@@ -18,17 +19,16 @@
         <span class="slider"></span>
       </label>
     </div>
-    <form class="recover-form">
+    <form class="recover-form" id="recover-form">
       <h2>Recuperação de senha</h2>
       <p>Insira seu email ou número de celular para procurar a sua conta.</p>
       <input type="email" placeholder="Digite seu email" required>
       <div class="buttons">
         <button type="button" onclick="window.location.href='index.html'">Cancelar</button>
-        <button type="submit">Pesquisar</button>
+        <button id="recover-button">Recuperar</button>
       </div>
     </form>
   </div>
-  <script src="js/function.js"></script>
   <script src="js/theme.js"></script>
 </body>
 </html>
