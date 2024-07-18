@@ -20,15 +20,16 @@
         <span class="slider"></span>
       </label>
     </div>
-    <form class="login-form">
-      <input type="text" placeholder="Digite seu email" required>
-      <input type="password" placeholder="Digite sua senha" required>
+    <form id="loginForm" class="login-form">
+      <input type="text" id="email" placeholder="Digite seu email" required>
+      <input type="password" id="password" placeholder="Digite sua senha" required>
       <button type="submit">Entrar</button>
       <a href="recuperasenha.html">Esqueceu a senha?</a>
       <a href="cadastro.html">Criar nova conta</a>
     </form>
   </div>
   <script src="js/theme.js"></script>
+  <script src="js/database.js"></script> <!-- Adicione esta linha -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -41,6 +42,7 @@
       });
     }
   </script>
+  <script src="js/function.js"></script>
 </body>
 
 </html>

@@ -27,35 +27,35 @@
   
   <div class="main-content">
     <section id="configuracoes">
-      <form>
+      <form id="formRegistro">
         <label for="nome-acs">Nome do ACS:</label>
         <input type="text" id="nome-acs" name="nome-acs">
-
+    
         <label for="data-registro">Data do registro:</label>
         <input type="date" id="data-registro" name="data-registro">
-
+    
         <label for="nome-agredido">Nome do Agredido:</label>
         <input type="text" id="nome-agredido" name="nome-agredido">
-
+    
         <label for="data-agressao">Data da Agressão:</label>
         <input type="date" id="data-agressao" name="data-agressao">
-
+    
         <label>Sexo:</label>
         <label><input type="radio" name="sexo" value="feminino"> Feminino</label>
         <label><input type="radio" name="sexo" value="masculino"> Masculino</label>
-
+    
         <label for="geolocalizacao">Geolocalização:</label>
         <button type="button" onclick="generateLocation()">Gerar localização</button>
         <div id="map"></div>
         <input type="text" id="latitude" name="latitude" readonly>
         <input type="text" id="longitude" name="longitude" readonly>
-
+    
         <label for="municipio-agressao">Município da agressão:</label>
         <input type="text" id="municipio-agressao" name="municipio-agressao">
-
+    
         <label for="endereco-agressao">Endereço da agressão:</label>
         <input type="text" id="endereco-agressao" name="endereco-agressao">
-
+    
         <label>Local da agressão:</label>
         <label><input type="checkbox" name="local-agressao" value="cobertura-de-palha"> Casa cobertura de palha</label>
         <label><input type="checkbox" name="local-agressao" value="madeira-sem-forro"> Casa de madeira sem forro</label>
@@ -64,17 +64,17 @@
         <label><input type="checkbox" name="local-agressao" value="barraco-de-lona"> Barraco de lona</label>
         <label><input type="checkbox" name="local-agressao" value="nao-tem"> Não tem</label>
         <label><input type="checkbox" name="local-agressao" value="muta"> Mutá</label>
-
+    
         <label for="camera">Acessar câmera:</label>
         <button type="button" onclick="accessCamera()"><i class="fa-solid fa-camera"></i></button>
-
+    
         <label for="galeria">Acessar galeria:</label>
         <button type="button" onclick="accessGallery()"><i class="fa-solid fa-image"></i></button>
-
+    
         <label>Recebeu tratamento antirrábico:</label>
         <label><input type="radio" name="tratamento" value="sim"> Sim</label>
         <label><input type="radio" name="tratamento" value="nao"> Não</label>
-
+    
         <label>Animal agredido no local:</label>
         <label><input type="checkbox" name="animal-agredido" value="nao"> Não</label>
         <label><input type="checkbox" name="animal-agredido" value="boi"> Boi</label>
@@ -83,19 +83,19 @@
         <label><input type="checkbox" name="animal-agredido" value="cao"> Cão</label>
         <label><input type="checkbox" name="animal-agredido" value="gato"> Gato</label>
         <label><input type="checkbox" name="animal-agredido" value="aves"> Aves</label>
-
+    
         <label>Qual a fonte de luz:</label>
         <label><input type="checkbox" name="fonte-luz" value="energia-eletrica"> Energia elétrica</label>
         <label><input type="checkbox" name="fonte-luz" value="fogueira"> Fogueira</label>
         <label><input type="checkbox" name="fonte-luz" value="lamparina"> Lamparina</label>
-
+    
         <label>Circunstância:</label>
         <label><input type="checkbox" name="circunstancia" value="pescando"> Pescando</label>
         <label><input type="checkbox" name="circunstancia" value="cacando"> Caçando</label>
         <label><input type="checkbox" name="circunstancia" value="em-lazer"> Em lazer</label>
-
+    
         <button type="submit">Registrar</button>
-      </form>
+    </form>    
     </section>
   </div>
   

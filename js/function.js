@@ -30,12 +30,34 @@ function generateLocation() {
   }
   
   function accessCamera() {
-    // Implementar código para acessar a câmera
-  }
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            const video = document.createElement('video');
+            video.srcObject = stream;
+            video.play();
+            document.body.appendChild(video);
+        })
+        .catch(error => console.error('Erro ao acessar a câmera:', error));
+}
+
   
-  function accessGallery() {
-    // Implementar código para acessar a galeria
+function accessGallery() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.onchange = function(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function(e) {
+          const img = new Image();
+          img.src = e.target.result;
+          document.body.appendChild(img);
+      }
+      reader.readAsDataURL(file);
   }
+  input.click();
+}
+
   
   // Adiciona o evento ao botão "Pesquisar"
 document.addEventListener('DOMContentLoaded', function() {
@@ -49,4 +71,40 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(error);
       });
   });
+});
+
+document.getElementById('registerForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const nome = form.firstName.value;
+  const sobrenome = form.lastName.value;
+  const email = form.email.value;
+  const senha = form.password.value;
+
+  addUsuario(nome, sobrenome, email, senha);
+  alert('Usuário cadastrado com sucesso!');
+});
+
+document.getElementById('formRegistro').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form = e.target;
+
+  const nomeAcs = form.nome-acs.value;
+  const dataRegistro = form.data-registro.value;
+  const nomeAgredido = form.nome-agredido.value;
+  const dataAgressao = form.data-agressao.value;
+  const sexo = form.sexo.value;
+  const latitude = form.latitude.value;
+  const longitude = form.longitude.value;
+  const municipioAgressao = form.municipio-agressao.value;
+  const enderecoAgressao = form.endereco-agressao.value;
+  const localAgressao = Array.from(form['local-agressao']).filter(chk => chk.checked).map(chk => chk.value).join(', ');
+  const foto = null; // Atualize conforme necessário para capturar a imagem da câmera
+  const tratamento = form.tratamento.value;
+  const animalAgredido = Array.from(form['animal-agredido']).filter(chk => chk.checked).map(chk => chk.value).join(', ');
+  const fonteLuz = Array.from(form['fonte-luz']).filter(chk => chk.checked).map(chk => chk.value).join(', ');
+  const circunstancia = Array.from(form['circunstancia']).filter(chk => chk.checked).map(chk => chk.value).join(', ');
+
+  addRegistro(nomeAcs, dataRegistro, nomeAgredido, dataAgressao, sexo, latitude, longitude, municipioAgressao, enderecoAgressao, localAgressao, foto, tratamento, animalAgredido, fonteLuz, circunstancia);
+  alert('Registro de mordida salvo com sucesso!');
 });
