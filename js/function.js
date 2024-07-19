@@ -54,109 +54,78 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Funções de geolocalização e acesso à câmera e galeria
-function showPosition(position) {
-  const latitude = position.coords.latitude;
-  const longitude = position.coords.longitude;
-  
-  // Atualizar os campos de latitude e longitude
-  document.getElementById('latitude').value = latitude;
-  document.getElementById('longitude').value = longitude;
-
-  // Inicializar o mapa
-  const map = L.map('map').setView([latitude, longitude], 13);
-
-  // Adicionar uma camada de mapa (utilizando o OpenStreetMap como exemplo)
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-  // Adicionar um marcador na localização atual
-  L.marker([latitude, longitude]).addTo(map)
-    .bindPopup('Você está aqui!')
-    .openPopup();
-}
-
-
-function showPosition(position) {
-  document.getElementById('latitude').value = position.coords.latitude;
-  document.getElementById('longitude').value = position.coords.longitude;
-
-  // Implementar código para exibir o mini mapa
-  const map = document.getElementById('map');
-  if (map) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    const mapUrl = `https://maps.google.com/maps?q=${latitude},${longitude}&z=15&output=embed`;
-    map.innerHTML = `<iframe src="${mapUrl}" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen></iframe>`;
-  }
-}
-
-function showError(error) {
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-      alert("Usuário negou a solicitação de geolocalização.");
-      break;
-    case error.POSITION_UNAVAILABLE:
-      alert("As informações de localização não estão disponíveis.");
-      break;
-    case error.TIMEOUT:
-      alert("A solicitação para obter a localização do usuário expirou.");
-      break;
-    case error.UNKNOWN_ERROR:
-      alert("Ocorreu um erro desconhecido.");
-      break;
-  }
-}
-
+// Funções de acesso à câmera e galeria
 function accessCamera() {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(stream => {
-      const video = document.createElement('video');
-      video.srcObject = stream;
-      video.play();
-      document.body.appendChild(video);
-      // Botão para capturar a imagem
-      const captureButton = document.createElement('button');
-      captureButton.innerText = 'Capturar';
-      captureButton.onclick = function() {
-        const canvas = document.createElement('canvas');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const context = canvas.getContext('2d');
-        context.drawImage(video, 0, 0);
-        const dataUrl = canvas.toDataURL('image/png');
-        // Adicionar a imagem capturada ao formulário ou à página
-        document.body.removeChild(video);
-        document.body.removeChild(captureButton);
-        const img = new Image();
-        img.src = dataUrl;
-        document.body.appendChild(img);
-        document.getElementById('foto').value = dataUrl;
-      };
-      document.body.appendChild(captureButton);
-    })
-    .catch(error => console.error('Erro ao acessar a câmera:', error));
+  // Solicita acesso à câmera traseira
+  navigator.mediaDevices.getUserMedia({
+    video: {
+      facingMode: { exact: "environment" } // Tenta usar a câmera traseira
+    }
+  })
+  .then(stream => {
+    const video = document.createElement('video');
+    video.srcObject = stream;
+    video.autoplay = true;
+    video.style.display = 'none'; // Oculta o vídeo
+    document.body.appendChild(video);
+
+    // Cria um botão para capturar a imagem
+    const captureButton = document.createElement('button');
+    captureButton.innerText = 'Capturar Foto';
+    captureButton.style.position = 'absolute';
+    captureButton.style.top = '10px';
+    captureButton.style.left = '10px';
+    document.body.appendChild(captureButton);
+
+    captureButton.onclick = function() {
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const context = canvas.getContext('2d');
+      context.drawImage(video, 0, 0);
+      const dataUrl = canvas.toDataURL('image/png');
+
+      // Adiciona a imagem capturada ao formulário ou à página
+      const img = new Image();
+      img.src = dataUrl;
+      img.style.maxWidth = '150px'; // Ajuste o tamanho da imagem
+      img.style.maxHeight = '150px'; // Ajuste o tamanho da imagem
+      document.querySelector('.foto-galeria').innerHTML = ''; // Limpa a div antes de adicionar a nova imagem
+      document.querySelector('.foto-galeria').appendChild(img);
+
+      // Limpa a tela e para o vídeo
+      stream.getTracks().forEach(track => track.stop());
+      document.body.removeChild(video);
+      document.body.removeChild(captureButton);
+
+      document.getElementById('foto').value = dataUrl; // Atualiza o campo do formulário com a imagem capturada
+    };
+  })
+  .catch(error => console.error('Erro ao acessar a câmera:', error));
 }
+
 
 function accessGallery() {
   const input = document.createElement('input');
   input.type = 'file';
   input.accept = 'image/*';
   input.onchange = function(event) {
+    const div = document.querySelector('.foto-galeria');
+    div.innerHTML = ''; // Limpa a div antes de adicionar a nova imagem
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = function(e) {
       const img = new Image();
       img.src = e.target.result;
-      document.body.appendChild(img);
+      img.style.maxWidth = '150px'; // Ajusta a largura da imagem
+      img.style.maxHeight = '150px'; // Ajusta a altura da imagem
+      div.appendChild(img);
       document.getElementById('foto').value = e.target.result;
-    }
+    };
     reader.readAsDataURL(file);
-  }
+  };
   input.click();
 }
-
 // Evento para submissão do formulário
 document.getElementById('formRegistro').addEventListener('submit', function (e) {
   e.preventDefault();

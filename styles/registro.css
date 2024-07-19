@@ -153,16 +153,16 @@ body {
     background-color: #3700b3;
   }
   
-  #map {
-    height: 200px;
-    width: 100%;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-  }
-  
   @media (max-width: 500px) {
     .main-content {
       padding: 15px;
     }
+  }
+
+  .foto-galeria img {
+    max-width: 150px; /* Ajuste conforme o tamanho desejado */
+    max-height: 150px; /* Ajuste conforme o tamanho desejado */
+    margin-top: 10px; /* Espaçamento acima da imagem */
+    display: block; /* Faz com que a imagem apareça em nova linha */
   }
   

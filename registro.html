@@ -6,10 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="styles/registro.css">
   <link rel="manifest" href="js/manifest.json">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <title>Sismorcego - Configurações</title>
+   <title>Sismorcego - Configurações</title>
   <script src="js/notifica-registro.js" defer></script>
   <script src="js/function.js" defer></script>
 </head>
@@ -50,7 +47,6 @@
     
         <label for="geolocalizacao">Geolocalização:</label>
         <button type="button" onclick="generateLocation()">Gerar localização</button>
-        <div id="map" style="height: 200px; width: 100%;"></div>
 
         <input type="text" id="latitude" name="latitude" readonly>
         <input type="text" id="longitude" name="longitude" readonly>
@@ -75,7 +71,9 @@
     
         <label for="galeria">Acessar galeria:</label>
         <button type="button" onclick="accessGallery()"><i class="fa-solid fa-image"></i></button>
-    
+        <div class="foto-galeria"></div> <!-- Div para mostrar a imagem -->
+
+        
         <label>Recebeu tratamento antirrábico:</label>
         <label><input type="radio" name="tratamento" value="sim"> Sim</label>
         <label><input type="radio" name="tratamento" value="nao"> Não</label>
