@@ -1,5 +1,3 @@
-// registros.js
-
 document.addEventListener('DOMContentLoaded', () => {
   carregarRegistros();
 });
@@ -17,7 +15,20 @@ function carregarRegistros() {
       Object.keys(registro).forEach(key => {
           const td = document.createElement('td');
           if (Array.isArray(registro[key])) {
-              td.textContent = registro[key].join(', ');
+              if (key === 'fotos' && registro[key].length > 0) {
+                  // Adiciona imagens se a chave for 'fotos'
+                  registro[key].forEach(imagem => {
+                      const img = document.createElement('img');
+                      img.src = imagem;
+                      img.style.width = '100px'; // Define o tamanho da imagem
+                      img.style.height = '100px'; // Define o tamanho da imagem
+                      img.style.objectFit = 'cover'; // Ajusta o tamanho para cobrir o espaço
+                      img.style.margin = '5px'; // Espaçamento entre as imagens
+                      td.appendChild(img);
+                  });
+              } else {
+                  td.textContent = registro[key].join(', ');
+              }
           } else {
               td.textContent = registro[key];
           }
