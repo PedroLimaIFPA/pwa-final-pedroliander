@@ -165,4 +165,16 @@ body {
     margin-top: 10px; /* Espaçamento acima da imagem */
     display: block; /* Faz com que a imagem apareça em nova linha */
   }
+
+  .foto-galeria {
+    margin-top: 10px;
+}
+
+.foto-galeria img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
   

@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="styles/registro.css">
   <link rel="manifest" href="js/manifest.json">
-   <title>Sismorcego - Configurações</title>
+  <title>Sismorcego - Configurações</title>
   <script src="js/notifica-registro.js" defer></script>
   <script src="js/function.js" defer></script>
 </head>
@@ -67,13 +67,13 @@
         <label><input type="checkbox" name="local-agressao" value="muta"> Mutá</label>
     
         <label for="camera">Acessar câmera:</label>
-        <button type="button" onclick="accessCamera()"><i class="fa-solid fa-camera"></i></button>
+        <input type="file" accept="image/*" capture="camera" id="cameraInput">
     
         <label for="galeria">Acessar galeria:</label>
-        <button type="button" onclick="accessGallery()"><i class="fa-solid fa-image"></i></button>
-        <div class="foto-galeria"></div> <!-- Div para mostrar a imagem -->
-
-        
+        <input type="file" accept="image/*" id="galleryInput">
+    
+        <div class="foto-galeria" id="fotoGaleria"></div> <!-- Div para mostrar a imagem -->
+    
         <label>Recebeu tratamento antirrábico:</label>
         <label><input type="radio" name="tratamento" value="sim"> Sim</label>
         <label><input type="radio" name="tratamento" value="nao"> Não</label>
