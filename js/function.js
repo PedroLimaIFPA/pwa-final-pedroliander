@@ -54,19 +54,42 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Funções de geolocalização e acesso à câmera e galeria (sem alterações)
-function generateLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, showError);
-  } else {
-    alert("Geolocalização não é suportada por este navegador.");
-  }
+// Funções de geolocalização e acesso à câmera e galeria
+function showPosition(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  
+  // Atualizar os campos de latitude e longitude
+  document.getElementById('latitude').value = latitude;
+  document.getElementById('longitude').value = longitude;
+
+  // Inicializar o mapa
+  const map = L.map('map').setView([latitude, longitude], 13);
+
+  // Adicionar uma camada de mapa (utilizando o OpenStreetMap como exemplo)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  // Adicionar um marcador na localização atual
+  L.marker([latitude, longitude]).addTo(map)
+    .bindPopup('Você está aqui!')
+    .openPopup();
 }
+
 
 function showPosition(position) {
   document.getElementById('latitude').value = position.coords.latitude;
   document.getElementById('longitude').value = position.coords.longitude;
-  // Implementar código para exibir o mapa com a localização
+
+  // Implementar código para exibir o mini mapa
+  const map = document.getElementById('map');
+  if (map) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const mapUrl = `https://maps.google.com/maps?q=${latitude},${longitude}&z=15&output=embed`;
+    map.innerHTML = `<iframe src="${mapUrl}" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen></iframe>`;
+  }
 }
 
 function showError(error) {
@@ -88,13 +111,32 @@ function showError(error) {
 
 function accessCamera() {
   navigator.mediaDevices.getUserMedia({ video: true })
-      .then(stream => {
-          const video = document.createElement('video');
-          video.srcObject = stream;
-          video.play();
-          document.body.appendChild(video);
-      })
-      .catch(error => console.error('Erro ao acessar a câmera:', error));
+    .then(stream => {
+      const video = document.createElement('video');
+      video.srcObject = stream;
+      video.play();
+      document.body.appendChild(video);
+      // Botão para capturar a imagem
+      const captureButton = document.createElement('button');
+      captureButton.innerText = 'Capturar';
+      captureButton.onclick = function() {
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0);
+        const dataUrl = canvas.toDataURL('image/png');
+        // Adicionar a imagem capturada ao formulário ou à página
+        document.body.removeChild(video);
+        document.body.removeChild(captureButton);
+        const img = new Image();
+        img.src = dataUrl;
+        document.body.appendChild(img);
+        document.getElementById('foto').value = dataUrl;
+      };
+      document.body.appendChild(captureButton);
+    })
+    .catch(error => console.error('Erro ao acessar a câmera:', error));
 }
 
 function accessGallery() {
@@ -102,19 +144,20 @@ function accessGallery() {
   input.type = 'file';
   input.accept = 'image/*';
   input.onchange = function(event) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = function(e) {
-          const img = new Image();
-          img.src = e.target.result;
-          document.body.appendChild(img);
-      }
-      reader.readAsDataURL(file);
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = new Image();
+      img.src = e.target.result;
+      document.body.appendChild(img);
+      document.getElementById('foto').value = e.target.result;
+    }
+    reader.readAsDataURL(file);
   }
   input.click();
 }
 
-// Evento para submissão do formulário (sem alterações)
+// Evento para submissão do formulário
 document.getElementById('formRegistro').addEventListener('submit', function (e) {
   e.preventDefault();
   const form = e.target;
@@ -129,7 +172,7 @@ document.getElementById('formRegistro').addEventListener('submit', function (e) 
   const municipioAgressao = form.municipio-agressao.value;
   const enderecoAgressao = form.endereco-agressao.value;
   const localAgressao = Array.from(form['local-agressao']).filter(chk => chk.checked).map(chk => chk.value).join(', ');
-  const foto = null; // Atualize conforme necessário para capturar a imagem da câmera
+  const foto = form.foto.value; // Atualize conforme necessário para capturar a imagem da câmera
   const tratamento = form.tratamento.value;
   const animalAgredido = Array.from(form['animal-agredido']).filter(chk => chk.checked).map(chk => chk.value).join(', ');
   const fonteLuz = Array.from(form['fonte-luz']).filter(chk => chk.checked).map(chk => chk.value).join(', ');
