@@ -6,7 +6,7 @@
 </br>
 
 ## Objetivo da aplicação
- O projeto Sismorcego é uma plataforma desenvolvida com pwa para gerenciar e registrar casos de agressões envolvendo animais, com um foco em rastreamento e notificação. A plataforma oferece uma interface para a entrada de dados, visualização de registros e ajustes de configurações.
+ O projeto Sismorcego é uma plataforma desenvolvida como pwa para gerenciar e registrar casos de agressões envolvendo animais, com um foco em rastreamento e notificação. A plataforma oferece uma interface para a entrada de dados, visualização de registros e ajustes de configurações.
 
 ## Link para acessar o site: https://sismorcego.netlify.app/
 
