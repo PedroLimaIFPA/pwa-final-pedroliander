@@ -8,7 +8,9 @@
 ## Objetivo da aplicação
  O projeto Sismorcego é uma plataforma para gerenciar e registrar casos de agressões envolvendo animais, com um foco em rastreamento e notificação. A plataforma oferece uma interface para a entrada de dados, visualização de registros e ajustes de configurações.
 
-**Páginas HTML:**
+## Link para acessar o site: https://sismorcego.netlify.app/
+
+## Páginas HTML:
 - **[Index](index.html)**: 
 <p align="center">
   <img src="src/index.jpg" alt="Logo" width="500" height="300" style="vertical-align: middle;">
