@@ -10,6 +10,8 @@
 
 ## Link para acessar o site: https://sismorcego.netlify.app/
 
+## Link para acessar o video de apresentação do projeto: https://www.youtube.com/watch?v=LCijSo3vxzw
+
 ## Páginas HTML:
 - **[Index](index.html)**: 
 <p align="center">
