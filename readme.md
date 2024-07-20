@@ -5,6 +5,9 @@
 </p>
 </br>
 
+## Objetivo da aplicação
+ O projeto Sismorcego é uma plataforma para gerenciar e registrar casos de agressões envolvendo animais, com um foco em rastreamento e notificação. A plataforma oferece uma interface para a entrada de dados, visualização de registros e ajustes de configurações.
+
 **Páginas HTML:**
 - **[Index](index.html)**: 
 <p align="center">
